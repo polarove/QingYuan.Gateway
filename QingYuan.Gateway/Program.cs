@@ -16,7 +16,6 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySQL(builder.Configuration.GetConnectionString("MySQLConnection") ?? throw new InvalidOperationException()));
 
 builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<ApplicationDbContext>();
 
 var app = builder.Build();
 
