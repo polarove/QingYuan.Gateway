@@ -11,6 +11,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="QingYuan.Common" Version="1.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <ProjectReference Include="..\QingYuan.Services\QingYuan.Services.csproj" />
 	</ItemGroup>
 </Project>

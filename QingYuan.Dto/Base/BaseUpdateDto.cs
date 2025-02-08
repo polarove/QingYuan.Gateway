@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QingYuan.Dto.User
+namespace QingYuan.Dto.Base
 {
-    public class CreateUserParamDto
+    public class BaseUpdateDto : IUpdateDto
     {
-        public string? Name { get; set; }
+        public long Id { get; set; }
     }
 }

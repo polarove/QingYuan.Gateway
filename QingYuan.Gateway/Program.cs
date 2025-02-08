@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using QingYuan.Gateway.Middlewares;
 using QingYuan.Services;
 using QingYuan.Services.EF;
 using QingYuan.Services.EF.Impl;
@@ -31,5 +32,7 @@ if (app.Environment.IsDevelopment())
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseMiddleware<HttpNotFoundMiddleware>();
 
 app.Run();

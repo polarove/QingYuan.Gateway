@@ -3,12 +3,11 @@ using QingYuan.Services;
 
 namespace QingYuan.Controllers.App
 {
-    public class UserController(IUserService userService) : QingYuanAppControllerBase
+    public class UserController : QingYuanAppControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult> Get()
+        public ActionResult Get()
         {
-            await userService.CreateAsync();
             return Ok("App User");
         }
     }

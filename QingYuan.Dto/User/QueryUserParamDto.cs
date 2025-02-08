@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QingYuan.Dto.User
 {
-    internal class QueryUserParamDto
+    public class QueryUserParamDto
     {
     }
 }

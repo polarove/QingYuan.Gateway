@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Mapster" Version="7.4.0" />
+    <PackageReference Include="QingYuan.Common" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\QingYuan.Dto\QingYuan.Dto.csproj" />
     <ProjectReference Include="..\QingYuan.Model\QingYuan.Model.csproj" />
   </ItemGroup>
