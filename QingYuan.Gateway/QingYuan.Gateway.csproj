@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
@@ -16,6 +16,8 @@
     <ProjectReference Include="..\QingYuan.Controllers.Admin\QingYuan.Controllers.Admin.csproj" />
     <ProjectReference Include="..\QingYuan.Controllers.App\QingYuan.Controllers.App.csproj" />
     <ProjectReference Include="..\QingYuan.Model\QingYuan.Model.csproj" />
+    <ProjectReference Include="..\QingYuan.Services.EF\QingYuan.Services.EF.csproj" />
+    <ProjectReference Include="..\QingYuan.Services\QingYuan.Services.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,12 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using QingYuan.Services;
 
 namespace QingYuan.Controllers.Admin
 {
-    public class UserController : QingYuanAdminControllerBase
+    public class UserController(IUserService userService) : QingYuanAdminControllerBase
     {
         [HttpGet]
-        public ActionResult Get()
+        public async Task<ActionResult> Get()
         {
+            await userService.Create();
             return Ok("Admin User");
         }
     }
