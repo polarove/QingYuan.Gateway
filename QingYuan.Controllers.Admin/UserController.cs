@@ -1,6 +1,5 @@
 ﻿using Mapster;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using QingYuan.Common;
 using QingYuan.Dto.User;
 using QingYuan.Model.Tables;

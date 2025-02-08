@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using QingYuan.Services;
 
 namespace QingYuan.Controllers.App
 {

@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\QingYuan.Common\QingYuan.Common.csproj" />
     <ProjectReference Include="..\QingYuan.Model\QingYuan.Model.csproj" />
     <ProjectReference Include="..\QingYuan.Services\QingYuan.Services.csproj" />
   </ItemGroup>

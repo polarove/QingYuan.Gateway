@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QingYuan.Services.EF", "Qin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QingYuan.Dto", "QingYuan.Dto\QingYuan.Dto.csproj", "{2805DBBC-D540-4706-9755-08F0642B7722}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QingYuan.Common", "QingYuan.Common\QingYuan.Common.csproj", "{CFF01614-131D-445C-B189-6D9F7952CDA1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{2805DBBC-D540-4706-9755-08F0642B7722}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2805DBBC-D540-4706-9755-08F0642B7722}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2805DBBC-D540-4706-9755-08F0642B7722}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFF01614-131D-445C-B189-6D9F7952CDA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFF01614-131D-445C-B189-6D9F7952CDA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFF01614-131D-445C-B189-6D9F7952CDA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFF01614-131D-445C-B189-6D9F7952CDA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

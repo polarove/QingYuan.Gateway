@@ -1,0 +1,26 @@
+﻿using QingYuan.Common.Enums;
+
+namespace QingYuan.Common
+{
+    public partial class ApiResponseResult
+    {
+
+        public static ApiResponseResult Success() => new()
+        {
+            Code = EnumApiResponseResultCode.Success
+        };
+
+        public static ApiResponseResult<T> Success<T>(T? value) => new()
+        {
+            Code = EnumApiResponseResultCode.Success,
+            Data = value
+        };
+
+        public static ApiResponseResult<T> Success<T>(string message, T? value) => new()
+        {
+            Code = EnumApiResponseResultCode.Success,
+            Data = value,
+            Message = message
+        };
+    }
+}

@@ -1,8 +1,6 @@
 ﻿
-using QingYuan.Common;
 using QingYuan.Dto.User;
 using QingYuan.Model.Tables;
-using System.Runtime.CompilerServices;
 
 namespace QingYuan.Services
 {
