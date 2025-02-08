@@ -8,7 +8,7 @@ namespace QingYuan.Controllers.App
         [HttpGet]
         public async Task<ActionResult> Get()
         {
-            await userService.Create();
+            await userService.CreateAsync();
             return Ok("App User");
         }
     }

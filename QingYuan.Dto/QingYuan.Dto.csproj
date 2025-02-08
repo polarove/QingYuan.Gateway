@@ -6,9 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\QingYuan.Dto\QingYuan.Dto.csproj" />
-    <ProjectReference Include="..\QingYuan.Model\QingYuan.Model.csproj" />
-  </ItemGroup>
-
 </Project>

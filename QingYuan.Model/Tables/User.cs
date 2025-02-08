@@ -1,15 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using QingYuan.Model.Base;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace QingYuan.Model.Tables
 {
     [Table("user")]
-    public class User
+    public class User : BaseTable
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-
         public string? Name { get; set; }
     }
 }
