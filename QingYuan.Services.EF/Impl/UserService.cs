@@ -10,6 +10,7 @@ namespace QingYuan.Services.EF.Impl
             {
                 Name = "Test"
             });
+            DbContext.SaveChanges();
             return;
         }
     }

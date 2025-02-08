@@ -9,7 +9,7 @@ namespace QingYuan.Controllers.Admin
         public async Task<ActionResult> Get()
         {
             await userService.Create();
-            return Ok("Admin User");
+            return Ok(userService.GetHashCode());
         }
     }
 }

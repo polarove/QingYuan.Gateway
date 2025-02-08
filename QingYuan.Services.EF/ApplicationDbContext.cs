@@ -9,7 +9,7 @@ namespace QingYuan.Services.EF
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{
-        //    modelBuilder.Entity<User>().ToTable("User");
+        //    base.OnModelCreating(modelBuilder);
         //}
     }
 }
