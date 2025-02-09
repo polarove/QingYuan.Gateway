@@ -1,4 +1,4 @@
-﻿namespace QingYuan.Services.EF
+﻿namespace QingYuan.Services.EF.Base
 {
     public class EFServiceBase(ApplicationDbContext dbContext)
     {

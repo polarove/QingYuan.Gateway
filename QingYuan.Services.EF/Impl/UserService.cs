@@ -4,6 +4,7 @@ using QingYuan.Common;
 using QingYuan.Common.Exceptions;
 using QingYuan.Dto.User;
 using QingYuan.Model.Tables;
+using QingYuan.Services.EF.Base;
 
 namespace QingYuan.Services.EF.Impl
 {

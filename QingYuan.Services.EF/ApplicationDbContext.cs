@@ -1,9 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using QingYuan.Dto;
+using QingYuan.Model;
+using QingYuan.Model.Base;
 using QingYuan.Model.Tables;
 
 namespace QingYuan.Services.EF
 {
-    public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : DbContext(options)
+    public partial class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : DbContext(options)
     {
         public required DbSet<User> User { get; set; }
 
