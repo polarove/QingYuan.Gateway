@@ -1,12 +1,14 @@
 ﻿using Mapster;
 using Microsoft.AspNetCore.Mvc;
 using QingYuan.Common;
+using QingYuan.Common.Attributes;
 using QingYuan.Dto.User;
 using QingYuan.Model.Tables;
 using QingYuan.Services;
 
 namespace QingYuan.Controllers.Admin
 {
+    [ControllerIndex(1001)]
     public class UserController(IUserService userService) : QingYuanAdminControllerBase
     {
         [HttpPost("create")]
