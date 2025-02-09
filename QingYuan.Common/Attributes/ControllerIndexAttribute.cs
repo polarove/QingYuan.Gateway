@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace QingYuan.Common.Attributes
 {
-    [AttributeUsage(AttributeTargets.Class)]
-    public class ControllerIndexAttribute(int index) : Attribute
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
+    public class CodeAttribute(int code) : Attribute
     {
-        public bool HasAuthority(int order)
-        {
-            return order == index;
-        }
+        public int Code { get; } = code;
+
+        public bool HasAuthority(int code) => code == Code;
     }
 }
