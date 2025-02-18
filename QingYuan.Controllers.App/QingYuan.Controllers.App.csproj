@@ -11,6 +11,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="NPOI" Version="2.7.2" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <ProjectReference Include="..\QingYuan.Common\QingYuan.Common.csproj" />
 	  <ProjectReference Include="..\QingYuan.Services\QingYuan.Services.csproj" />
 	</ItemGroup>
