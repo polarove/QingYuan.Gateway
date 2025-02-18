@@ -49,8 +49,8 @@ namespace QingYuan.Controllers.Admin
                     ArrivalFlight = worksheet.Cells[row, 3].Text,
                     Identity = worksheet.Cells[row, 4].Text,
                     Gender = worksheet.Cells[row, 5].Text,
-                    //Birthday = worksheet.Cells[row, 6].Text,
-                    //Age = worksheet.Cells[row, 7].Text,
+                    Birthday = worksheet.Cells[row, 6].Text,
+                    Age = worksheet.Cells[row, 7].Text,
                     Contact = worksheet.Cells[row, 8].Text,
                     Remark = worksheet.Cells[row, 9].Text,
                     OrderDate = DateOnly.Parse(worksheet.Name)
