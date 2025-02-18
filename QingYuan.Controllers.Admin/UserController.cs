@@ -1,18 +1,18 @@
 ﻿using Mapster;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using QingYuan.Common;
-using QingYuan.Common.Attributes;
 using QingYuan.Dto.User;
 using QingYuan.Model.Tables;
 using QingYuan.Services;
 
 namespace QingYuan.Controllers.Admin
 {
-    [Code(1001)]
+
     public class UserController(IUserService userService) : QingYuanAdminControllerBase
     {
         [HttpPost("create")]
-        [Code(1)]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<ApiResponseResult>> CreateAsync([FromBody] CreateUserParamDto dto)
         {
             var user = dto.Adapt<User>();
@@ -21,7 +21,7 @@ namespace QingYuan.Controllers.Admin
         }
 
         [HttpPost("edit")]
-        [Code(2)]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<ApiResponseResult>> UpdateAsync([FromBody] UpdateUserParamDto dto)
         {
             var user = dto.Adapt<User>();
@@ -30,7 +30,7 @@ namespace QingYuan.Controllers.Admin
         }
 
         [HttpGet("delete/{id}")]
-        [Code(3)]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<ApiResponseResult>> DeleteAsync([FromRoute] long id)
         {
             var result = await userService.DeleteAsync(id);
@@ -38,7 +38,7 @@ namespace QingYuan.Controllers.Admin
         }
 
         [HttpGet("detail/{id}")]
-        [Code(4)]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<ApiResponseResult<QueryUserResultDto>>> GetAsync([FromRoute] int id)
         {
             var user = await userService.GetAsync(id);
@@ -47,7 +47,7 @@ namespace QingYuan.Controllers.Admin
         }
 
         [HttpGet("list")]
-        [Code(5)]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<ApiResponseResult>> GetAsync([FromQuery] QueryUserParamDto dto)
         {
             var user = await userService.GetAsync(dto);

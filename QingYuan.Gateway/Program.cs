@@ -19,7 +19,18 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     //.EnableSensitiveDataLogging()
     .LogTo(Console.WriteLine, LogLevel.Information));
 
+
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddCors(x =>
+{
+    x.AddDefaultPolicy(c =>
+    {
+        c.AllowAnyOrigin();
+        c.AllowAnyHeader();
+    });
+});
 
 var app = builder.Build();
 
@@ -29,6 +40,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

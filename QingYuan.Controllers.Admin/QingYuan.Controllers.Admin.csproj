@@ -11,6 +11,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="EPPlus" Version="7.6.0" />
+	  <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <ProjectReference Include="..\QingYuan.Common\QingYuan.Common.csproj" />
 	  <ProjectReference Include="..\QingYuan.Services\QingYuan.Services.csproj" />
 	</ItemGroup>

@@ -1,7 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using QingYuan.Dto;
-using QingYuan.Model;
-using QingYuan.Model.Base;
 using QingYuan.Model.Tables;
 
 namespace QingYuan.Services.EF
