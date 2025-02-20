@@ -1,6 +1,9 @@
-﻿namespace QingYuan.Model.Tables
+﻿using QingYuan.Common.Extensions;
+using System.Reflection;
+
+namespace QingYuan.Model.Tables
 {
-    public class Member
+    public class Member(string sheetName)
     {
         public string? Name { get; set; }
 
@@ -20,6 +23,28 @@
 
         public string? Remark { get; set; }
 
-        public DateOnly? OrderDate { get; set; }
+        public string? OrderDate { get; set; }
+
+        public void SetData()
+        {
+            if (DateTime.TryParse(Birthday, out DateTime birthDate))
+            {
+                Age = CalculateAge(birthDate).ToString();
+            }
+            else
+            {
+                Age = null;
+            }
+            OrderDate = sheetName;
+        }
+
+        private static int CalculateAge(DateTime datetime) => datetime.CalculateAge();
+
+        public bool AreAllPropertiesNull()
+        {
+            ArgumentNullException.ThrowIfNull(this);
+            var properties = GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            return properties.All(property => property.GetValue(this) is null or (object?) "");
+        }
     }
 }

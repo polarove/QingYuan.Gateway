@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\QingYuan.Common\QingYuan.Common.csproj" />
+  </ItemGroup>
+
 </Project>

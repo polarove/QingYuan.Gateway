@@ -2,46 +2,27 @@
 using Microsoft.AspNetCore.Mvc;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
+using QingYuan.Common;
 using QingYuan.Model.Tables;
 
 namespace QingYuan.Controllers.App
 {
     public partial class FileController : QingYuanAppControllerBase
     {
-        [HttpPost("excel/upload")]
-        public async Task<ActionResult> Upload(IFormFile file)
+        [HttpPost("excel/read")]
+        public async Task<ActionResult<ApiResponseResult>> Read(IFormFile file)
         {
-
             if (file == null || file.Length == 0)
             {
-                return BadRequest();
+                return BadRequest("无效文件");
             }
-
             using var stream = new MemoryStream();
             await file.CopyToAsync(stream);
             stream.Position = 0;
 
             XSSFWorkbook workbook = new(stream);
             var result = await ReadAsync(workbook);
-            return Ok(result);
-        }
-
-        public static int? CalculateAge(DateOnly? birthDate)
-        {
-            if (birthDate == null)
-            {
-                return null;
-            }
-            DateOnly today = DateOnly.FromDateTime(DateTime.Today);
-            int age = today.Year - birthDate.Value.Year;
-
-            // If birth date is greater than today's date then decrement age by 1
-            if (birthDate.Value > today.AddYears(-age))
-            {
-                age--;
-            }
-
-            return age;
+            return ApiResponseResult.Success(result);
         }
 
         private static async Task<List<List<Member>>> ReadAsync(XSSFWorkbook workbook)
@@ -63,7 +44,7 @@ namespace QingYuan.Controllers.App
                 if (currentRow == null)
                     continue;
 
-                var member = new Member
+                var rowData = new Member(sheet.SheetName)
                 {
                     Name = currentRow.GetCell(0)?.ToString(),
                     DepartingFlight = currentRow.GetCell(1)?.ToString(),
@@ -73,18 +54,9 @@ namespace QingYuan.Controllers.App
                     Birthday = currentRow.GetCell(5)?.DateCellValue?.ToString("yyyy-MM-dd"),
                     Contact = currentRow.GetCell(7)?.ToString(),
                     Remark = currentRow.GetCell(8)?.ToString(),
-                    OrderDate = DateOnly.Parse(sheet.SheetName)
                 };
-                if (DateTime.TryParse(member.Birthday, out DateTime birthDate))
-                {
-                    member.Age = CalculateAge(birthDate).ToString();
-                }
-                else
-                {
-                    member.Age = null;
-                }
-                // 如果身份证号为空，则表示一个组的数据读取完毕
-                if (string.IsNullOrEmpty(member.Identity))
+
+                if (rowData.AreAllPropertiesNull())
                 {
                     if (currentGroup.Count > 0)
                     {
@@ -94,7 +66,8 @@ namespace QingYuan.Controllers.App
                 }
                 else
                 {
-                    currentGroup.Add(member);
+                    rowData.SetData();
+                    currentGroup.Add(rowData);
                 }
             }
 
@@ -105,12 +78,6 @@ namespace QingYuan.Controllers.App
             return groups;
         }
 
-        private static int CalculateAge(DateTime birthDate)
-        {
-            int age = DateTime.Now.Year - birthDate.Year;
-            if (DateTime.Now < birthDate.AddYears(age))
-                age--;
-            return age;
-        }
+
     }
 }
