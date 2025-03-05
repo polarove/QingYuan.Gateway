@@ -14,10 +14,7 @@ builder.Services.AddControllers().AddApplicationPart(typeof(ControllerBase).Asse
 builder.Services.AddOpenApi();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseMySQL(builder.Configuration.GetConnectionString("MySQLConnection") ?? throw new InvalidOperationException(),
-    builder => builder.MigrationsAssembly("QingYuan.Gateway"))
-    //.EnableSensitiveDataLogging()
-    .LogTo(Console.WriteLine, LogLevel.Information));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServerConnection")));
 
 
 builder.Services.AddScoped<IUserService, UserService>();
