@@ -9,10 +9,8 @@ namespace QingYuan.Model.Base
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
 
-        [Column("create_time")]
         public DateTimeOffset CreateTime { get; set; }
 
-        [Column("update_time")]
         public DateTimeOffset? UpdateTime { get; set; }
     }
 }
