@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QingYuan.Gateway.Middlewares;
+using QingYuan.Gateway.ModelConvention;
 using QingYuan.Services;
 using QingYuan.Services.EF;
 using QingYuan.Services.EF.Impl;
@@ -29,10 +30,10 @@ builder.Services.AddCors(x =>
     });
 });
 
-//builder.Services.AddMvc(x =>
-//{
-//    x.Conventions.Add(new ControllerAffixAttributeConvention());
-//});
+builder.Services.AddMvc(x =>
+{
+    x.Conventions.Add(new ControllerAffixAttributeConvention());
+});
 
 var app = builder.Build();
 

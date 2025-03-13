@@ -11,10 +11,25 @@ namespace QingYuan.Gateway.ModelConvention
         {
             foreach (var controller in application.Controllers)
             {
+                if (controller == null)
+                {
+                    continue;
+                }
                 if (!controller.ControllerType.IsDefined(typeof(ControllerAffixAttribute), true))
                 {
                     continue;
                 }
+                var controllerName = NormalizeControllerName(controller);
+                controller.ControllerName = controllerName;
+                foreach (var selector in controller.Selectors)
+                {
+                    selector.AttributeRouteModel!.Template = selector.AttributeRouteModel!.Template!.Replace("[controller]", controllerName);
+                }
+            }
+
+            #region normalize controller name
+            static string NormalizeControllerName(ControllerModel controller)
+            {
                 var attribute = controller.ControllerType.GetCustomAttribute<ControllerAffixAttribute>(true)!;
                 var controllerName = controller.ControllerName.Replace("Controller", "");
                 switch (attribute.Effect)
@@ -42,11 +57,10 @@ namespace QingYuan.Gateway.ModelConvention
                     default:
                         throw new ArgumentNullException(nameof(application), $"{controllerName}标记了{nameof(ControllerAffixAttribute)}但未指定到底是添加还是删除，请于第三个参数指定");
                 }
-                foreach (var selector in controller.Selectors)
-                {
-                    selector.AttributeRouteModel!.Template = selector.AttributeRouteModel!.Template!.Replace("[controller]", controllerName);
-                }
+                return controllerName;
             }
+            #endregion
+
         }
     }
 }
