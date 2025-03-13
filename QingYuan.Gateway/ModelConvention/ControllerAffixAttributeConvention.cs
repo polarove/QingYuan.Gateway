@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace QingYuan.Gateway.ModelConvention
 {
-    public class ControllerAffixAttributeConvention : IApplicationModelConvention
+    public class ControllerAffixAttributeConvention(string placeholder = "[controller]") : IApplicationModelConvention
     {
         public void Apply(ApplicationModel application)
         {
@@ -23,7 +23,7 @@ namespace QingYuan.Gateway.ModelConvention
                 controller.ControllerName = controllerName;
                 foreach (var selector in controller.Selectors)
                 {
-                    selector.AttributeRouteModel!.Template = selector.AttributeRouteModel!.Template!.Replace("[controller]", controllerName);
+                    selector.AttributeRouteModel!.Template = selector.AttributeRouteModel!.Template!.Replace(placeholder, controllerName);
                 }
             }
 
