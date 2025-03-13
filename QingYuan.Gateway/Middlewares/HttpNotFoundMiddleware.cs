@@ -1,5 +1,5 @@
-﻿using QingYuan.Common;
-using QingYuan.Common.Enums;
+﻿using QingYuan.Mvc;
+using QingYuan.Mvc.Enums;
 
 namespace QingYuan.Gateway.Middlewares
 {

@@ -1,8 +1,6 @@
-﻿using Mapster;
-using Microsoft.EntityFrameworkCore;
-using QingYuan.Common;
-using QingYuan.Common.Exceptions;
+﻿using Microsoft.EntityFrameworkCore;
 using QingYuan.Dto.User;
+using QingYuan.Exceptions;
 using QingYuan.Model.Tables;
 using QingYuan.Services.EF.Base;
 

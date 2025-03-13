@@ -1,5 +1,4 @@
-﻿using QingYuan.Common.Encrypt;
-
+﻿
 namespace QingYuan.Test
 {
     [TestClass]
@@ -8,8 +7,8 @@ namespace QingYuan.Test
         [TestMethod]
         public void TestMethod1()
         {
-            var hash = Salt.Generate();
-            Console.WriteLine(hash);
+
+            Console.WriteLine("test");
         }
     }
 }

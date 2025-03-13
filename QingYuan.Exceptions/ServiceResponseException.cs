@@ -1,11 +1,7 @@
-﻿using QingYuan.Common.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using QingYuan.Mvc;
+using QingYuan.Mvc.Enums;
 
-namespace QingYuan.Common.Exceptions
+namespace QingYuan.Exceptions
 {
     public class ServiceResponseException : Exception
     {
