@@ -39,8 +39,8 @@ namespace QingYuan.Controllers.App
             return ApiResponseResult.Success(model);
         }
 
-        [HttpPost("list")]
-        public async Task<ActionResult<ApiResponseResult>> List([FromBody] QueryUserParamDto dto)
+        [HttpGet("list")]
+        public async Task<ActionResult<ApiResponseResult>> List([FromQuery] QueryUserParamDto dto)
         {
             var result = await userService.GetAsync(dto);
             return ApiResponseResult.Success(result);

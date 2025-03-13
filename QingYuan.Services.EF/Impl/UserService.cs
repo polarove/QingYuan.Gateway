@@ -32,7 +32,7 @@ namespace QingYuan.Services.EF.Impl
 
         public async Task<bool> DeleteAsync(long id)
         {
-            var user = await GetAsync(id) ?? throw ServiceResponseException.Fail();
+            var user = await GetAsync(id) ?? throw ServiceResponseException.NotFound();
             DbContext.User.Remove(user);
             var result = await DbContext.SaveChangesAsync();
             return result > 0;
