@@ -17,7 +17,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServerConnection")));
 
 
-builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IUserService, UserServiceImpl>();
 builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddCors(x =>

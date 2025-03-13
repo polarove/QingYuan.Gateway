@@ -4,6 +4,6 @@
     {
         public long Id { get; set; }
 
-        public bool IsDeleted { get; set; }
+        public byte IsDeleted { get; set; }
     }
 }

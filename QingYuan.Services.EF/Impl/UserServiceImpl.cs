@@ -7,12 +7,12 @@ using QingYuan.Services.EF.Base;
 
 namespace QingYuan.Services.EF.Impl
 {
-    public class UserService(ApplicationDbContext dbContext) : EFServiceBase(dbContext), IUserService, IScopedService<IUserService>
+    public class UserServiceImpl(ApplicationDbContext dbContext) : EFServiceBase(dbContext), IUserService, IScopedService<IUserService>
     {
         public async Task<long> CreateAsync(CreateUserParamDto dto)
         {
             var user = dto.Adapt<User>();
-            await DbContext.User.AddAsync(user);
+            DbContext.User.Add(user);
             await DbContext.SaveChangesAsync();
             return user.Id;
         }
@@ -40,7 +40,8 @@ namespace QingYuan.Services.EF.Impl
 
         public async Task<bool> UpdateAsync(UpdateUserParamDto dto)
         {
-            var user = dto.Adapt<User>();
+            var user = await GetAsync(dto.Id) ?? throw ServiceResponseException.NotFound();
+            user.Name = dto.Name;
             DbContext.User.Update(user);
             var result = await DbContext.SaveChangesAsync();
             return result > 0;

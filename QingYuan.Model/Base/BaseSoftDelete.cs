@@ -2,6 +2,6 @@
 {
     public class BaseSoftDelete : BaseTable, ISoftDelete
     {
-        public bool IsDeleted { get; set; }
+        public byte IsDeleted { get; set; }
     }
 }
