@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using QingYuan.Attributes;
 using QingYuan.Dto;
 using QingYuan.Dto.User;
 using QingYuan.Mvc;
@@ -7,8 +6,8 @@ using QingYuan.Services;
 
 namespace QingYuan.Controllers.App
 {
-    [ControllerPrefix("Hello")]
-    [ControllerSuffix("Hello")]
+    //[ControllerPrefix("Hello")]
+    //[ControllerSuffix("Hello")]
     public class UserController(IUserService userService) : QingYuanAppControllerBase
     {
 
