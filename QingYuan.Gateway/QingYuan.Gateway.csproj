@@ -17,13 +17,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\QingYuan.Attributes\QingYuan.Attributes.csproj" />
     <ProjectReference Include="..\QingYuan.Controllers.Admin\QingYuan.Controllers.Admin.csproj" />
     <ProjectReference Include="..\QingYuan.Controllers.App\QingYuan.Controllers.App.csproj" />
     <ProjectReference Include="..\QingYuan.Model\QingYuan.Model.csproj" />
-    <ProjectReference Include="..\QingYuan.Mvc\QingYuan.Mvc.csproj" />
     <ProjectReference Include="..\QingYuan.Services.EF\QingYuan.Services.EF.csproj" />
-    <ProjectReference Include="..\QingYuan.Services\QingYuan.Services.csproj" />
   </ItemGroup>
 
 </Project>
