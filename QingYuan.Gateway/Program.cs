@@ -18,6 +18,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 
 builder.Services.AddScoped<IUserService, UserServiceImpl>();
+
 builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddCors(x =>
@@ -28,6 +29,7 @@ builder.Services.AddCors(x =>
         c.AllowAnyHeader();
     });
 });
+
 
 //builder.Services.AddMvc(x =>
 //{
