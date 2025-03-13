@@ -1,4 +1,5 @@
 ﻿using QingYuan.Attributes.Enums;
+using QingYuan.Extensions;
 using System.Runtime.InteropServices;
 
 namespace QingYuan.Attributes
@@ -8,7 +9,7 @@ namespace QingYuan.Attributes
     {
         public ControllerAffixAttribute([Optional] string? prefix, [Optional] string? suffix, EnumControllerAffixEffect effect)
         {
-            if (prefix == null && suffix == null)
+            if (prefix.IsNullOrWhiteSpace() && suffix.IsNullOrWhiteSpace())
             {
                 throw new ArgumentNullException(nameof(prefix), $"{nameof(ControllerAffixAttribute)}属性需要 prefix 或 suffix 任意一个有值。");
             }

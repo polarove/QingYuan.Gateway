@@ -1,4 +1,4 @@
-﻿namespace QingYuan.Common.Extensions
+﻿namespace QingYuan.Extensions
 {
     public static class DateTimeExtensions
     {

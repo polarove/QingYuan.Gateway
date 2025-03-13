@@ -1,7 +1,5 @@
 ﻿using Mapster;
 using Microsoft.AspNetCore.Mvc;
-using QingYuan.Attributes;
-using QingYuan.Attributes.Enums;
 using QingYuan.Dto.User;
 using QingYuan.Model.Tables;
 using QingYuan.Mvc;
@@ -9,7 +7,7 @@ using QingYuan.Services;
 
 namespace QingYuan.Controllers.App
 {
-    [ControllerAffix("User", null, EnumControllerAffixEffect.Remove)]
+    //[ControllerAffix("User", null, EnumControllerAffixEffect.Remove)]
     public class UserController(IUserService userService) : QingYuanAppControllerBase
     {
         [HttpPost]
