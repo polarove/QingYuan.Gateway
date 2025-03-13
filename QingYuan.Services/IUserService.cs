@@ -6,13 +6,13 @@ namespace QingYuan.Services
 {
     public interface IUserService
     {
-        public Task<long> CreateAsync(User dto);
+        public Task<long> CreateAsync(CreateUserParamDto dto);
 
-        public Task<User?> GetAsync(QueryUserParamDto dto);
+        public Task<List<User>?> GetAsync(QueryUserParamDto dto);
 
         public Task<User?> GetAsync(long id);
 
-        public Task<bool> UpdateAsync(User dto);
+        public Task<bool> UpdateAsync(UpdateUserParamDto dto);
 
         public Task<bool> DeleteAsync(long id);
     }

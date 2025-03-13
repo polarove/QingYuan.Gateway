@@ -7,9 +7,5 @@ namespace QingYuan.Services.EF
     {
         public required DbSet<User> User { get; set; }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    base.OnModelCreating(modelBuilder);
-        //}
     }
 }

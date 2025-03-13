@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\QingYuan.Exceptions\QingYuan.Exceptions.csproj" />
+    <ProjectReference Include="..\QingYuan.Extensions\QingYuan.Extensions.csproj" />
     <ProjectReference Include="..\QingYuan.Model\QingYuan.Model.csproj" />
     <ProjectReference Include="..\QingYuan.Services\QingYuan.Services.csproj" />
   </ItemGroup>

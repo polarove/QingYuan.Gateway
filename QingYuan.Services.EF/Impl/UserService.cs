@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Mapster;
+using Microsoft.EntityFrameworkCore;
 using QingYuan.Dto.User;
 using QingYuan.Exceptions;
 using QingYuan.Model.Tables;
@@ -8,19 +9,19 @@ namespace QingYuan.Services.EF.Impl
 {
     public class UserService(ApplicationDbContext dbContext) : EFServiceBase(dbContext), IUserService, IScopedService<IUserService>
     {
-        public async Task<long> CreateAsync(User dto)
+        public async Task<long> CreateAsync(CreateUserParamDto dto)
         {
-            dto.CreateTime = DateTimeOffset.Now;
-            await DbContext.AddAsync(dto);
+            var user = dto.Adapt<User>();
+            await DbContext.User.AddAsync(user);
             await DbContext.SaveChangesAsync();
-            return dto.Id;
+            return user.Id;
         }
 
-        public async Task<User?> GetAsync(QueryUserParamDto dto)
+        public async Task<List<User>?> GetAsync(QueryUserParamDto dto)
         {
             var query = DbContext.User.AsQueryable();
             query = AddFilters(query, dto);
-            var user = await query.FirstOrDefaultAsync();
+            var user = await query.ToListAsync();
             return user;
         }
 
@@ -37,9 +38,9 @@ namespace QingYuan.Services.EF.Impl
             return result > 0;
         }
 
-        public async Task<bool> UpdateAsync(User user)
+        public async Task<bool> UpdateAsync(UpdateUserParamDto dto)
         {
-            user.UpdateTime = DateTime.Now;
+            var user = dto.Adapt<User>();
             DbContext.User.Update(user);
             var result = await DbContext.SaveChangesAsync();
             return result > 0;

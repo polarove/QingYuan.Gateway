@@ -10,7 +10,7 @@ namespace QingYuan.Extensions
         public static string ToCamelCase(this string s) => JsonNamingPolicy.CamelCase.ConvertName(s);
         public static string ToSnakeCaseLower(this string s) => JsonNamingPolicy.SnakeCaseLower.ConvertName(s);
 
-        //public static string ToKebabCase(this string s) => ToSeparatedCase(s, '-');
+        public static string ToSnakeCaseUpper(this string s) => JsonNamingPolicy.SnakeCaseUpper.ConvertName(s);
 
         #endregion
 
