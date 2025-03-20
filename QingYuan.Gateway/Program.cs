@@ -15,7 +15,9 @@ builder.Services.AddControllers().AddApplicationPart(typeof(ControllerBase).Asse
 builder.Services.AddOpenApi();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServerConnection")));
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServerConnection"), b => b.MigrationsAssembly("QingYuan.Gateway"));
+});
 
 
 builder.Services.AddScoped<IUserService, UserServiceImpl>();
