@@ -47,5 +47,11 @@ namespace QingYuan.Controllers.App
             return ApiResponseResult.Success(result);
         }
 
+        [HttpGet("test")]
+        public async Task<ActionResult<ApiResponseResult>> Error()
+        {
+            var result = await userService.ExceptionAsync();
+            return ApiResponseResult.Success(result);
+        }
     }
 }

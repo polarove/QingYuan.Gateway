@@ -47,6 +47,11 @@ namespace QingYuan.Services.EF.Impl
             return result > 0;
         }
 
+        public async Task<bool> ExceptionAsync()
+        {
+            throw new ServiceResponseException("测试错误");
+        }
+
         private static IQueryable<User> AddFilters(IQueryable<User> query, QueryUserParamDto dto)
         {
             if (dto.Name != null)

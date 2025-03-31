@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using QingYuan.Gateway.Middlewares;
+using QingYuan.Gateway.Filters;
 using QingYuan.Gateway.ModelConvention;
 using QingYuan.Services;
 using QingYuan.Services.EF;
@@ -37,6 +37,7 @@ builder.Services.AddCors(x =>
 builder.Services.AddMvc(x =>
 {
     x.Conventions.Add(new ControllerAffixAttributeConvention());
+    x.Filters.Add(new GlobalExceptionFiltersAttribute());
 });
 
 var app = builder.Build();
@@ -50,8 +51,9 @@ if (app.Environment.IsDevelopment())
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllers();
 
-app.UseMiddleware<HttpNotFoundMiddleware>();
+app.MapControllers();
+//app.UseMiddleware<HttpNotFoundMiddleware>();
+
 
 app.Run();

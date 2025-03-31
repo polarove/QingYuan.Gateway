@@ -3,7 +3,7 @@ using QingYuan.Mvc.Enums;
 
 namespace QingYuan.Gateway.Middlewares
 {
-    public class HttpNotFoundMiddleware(RequestDelegate next, IWebHostEnvironment env)
+    public class HttpNotFoundMiddleware(RequestDelegate next)
     {
 
         public Task Invoke(HttpContext context)
@@ -13,11 +13,11 @@ namespace QingYuan.Gateway.Middlewares
             {
                 return next(context);
             }
-            else if (env.IsDevelopment())
-            {
-                context.Response.Redirect("/openapi/v1.json");
-                return Task.CompletedTask;
-            }
+            //else if (env.IsDevelopment())
+            //{
+            //    context.Response.Redirect("/openapi/v1.json");
+            //    return Task.CompletedTask;
+            //}
             context.Response.StatusCode = 404;
             return context.Response.WriteAsJsonAsync(ApiResponseResult.Fail(EnumApiResponseResultCode.NotFound, "未找到服务"));
         }

@@ -15,5 +15,7 @@ namespace QingYuan.Services
         public Task<bool> UpdateAsync(UpdateUserParamDto dto);
 
         public Task<bool> DeleteAsync(long id);
+
+        public Task<bool> ExceptionAsync();
     }
 }

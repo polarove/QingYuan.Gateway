@@ -1,5 +1,4 @@
-﻿
-using QingYuan.Mvc.Enums;
+﻿using QingYuan.Mvc.Enums;
 
 namespace QingYuan.Mvc
 {
